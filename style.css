@@ -78,4 +78,37 @@ nav a:hover {
 
 .active {
   color: #3a8479;
+}
+
+.header-img {
+  position: relative;
+  margin-bottom: 1em;
+}
+.header-img .banner-tekst {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+}
+.header-img h1 {
+  font-size: 3.5vw;
+}
+.header-img p {
+  font-size: 2vw;
+}
+.header-img a {
+  background-color: #3a8479;
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  position: absolute;
+}
+.header-img a:hover {
+  background-color: #133833;
+  transition: 0.3s ease-in-out;
+}
+
+.bg-billede-mobil {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

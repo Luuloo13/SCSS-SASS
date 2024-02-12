@@ -5,5 +5,16 @@ $footer-color: #0a1f1c;
 $primary-color: #3a8479;
 $secundary-color: #133833;
 $txt-color: #484848;
+$padding: 0.5em;
 
-$font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif'
+$font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+//Mixins
+//Ændre på justify content og allignment vil vi gerne, derfor laver vi dette. Her slipper vi for at skrive disse ting under, hver eneste gang.
+
+@mixin flex($justify:center, $align:center){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}

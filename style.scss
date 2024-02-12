@@ -34,4 +34,54 @@ img{
     display: grid; //Grid kan defineres på flere måder, vi gør brug af grid collums og grid rows, auto rows da vi ikke skal ind og lave noget kompleks
     grid-template-columns: repeat(5, 1fr); //Her skriver hvor mange collums vi skla have og hvad størresle de skal have
     grid-auto-rows: minmax(50px, auto); //De rækker der er som ikke er specificeret skal indeholde 50px, igen her er vi ikke inde og lave noget konkret med rækkerne.
+
+}
+
+//Navigation
+
+header{
+    //vores grid skal have den fulde bredde så vi bruger 5 collums men plus 6 da der altid er en ekstra
+    grid-column: 1/6;
+    //nu kalder vi på vores mixin her: og vi tilføjer nogle elementer vi ændre i parantes. Det er nødvendigt at have dem i parantes hvis de skal ændres ellers er det fastsatte elementer.
+    @include partial.flex($justify: space-between);
+    //Nu skal vi have en baggrundsfarve til vores element
+    background-color: partial.$nav-color;
+    //De grønne streger i top og bund på billedet på hjemmesiden, bunden ligger i header i border-bottom:
+    border-bottom: 4px solid partial.$primary-color;
+
+}
+
+nav{
+    //Vi definere højden her. Man skal ikke, men man kan for at få det look man vil have. Man kan også lave det i headeren
+    height: 4em;
+    padding: 1em;
+    //vi henter vores flex igen. Include tagget skal bruges for at hente sin mixin, partial er filen den ligger i. Definer hvilken fil du henter fra og så hvad din mixin hedder. Ses nedenfor:
+    @include partial.flex($justify: space-between);
+
+    //Her henter vi vores logo/billede
+    img{
+        //Vi giver billedet en fast str. px er ikke bedst til en responsiv side. Men til det her er px fint at bruge.
+        width: 70px;
+    }
+
+    ul{
+        //Her har vi navigationselementerne og de skal være ved siden af hinanden, vi gør brug af flec for at få dem ved siden af hinanden:
+        @include partial.flex; //Her ændres ikke på noget da det allerede er specificeret. vi laver ikke paranteser da vi ikke ændre på de værdier vi allerede har lavet.
+        list-style-type:none
+    }
+
+    a{
+        //Her laves der en variabel til at lave den samme mængde padding. Samt at farven skal specificeres. Margin kan vi også bruge værdien til padding. 
+        color: partial.$txt-color;
+        padding: partial.$padding;
+        margin: partial.$padding;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none; //None fordi vi ikke vil have en streg neden under.
+    }
+
+    a:hover{
+        //Hover farven skal ændres til den primary-color:
+        color: partial.$primary-color;
+    }
 }

@@ -53,7 +53,7 @@ header{
 
 nav{
     //Vi definere højden her. Man skal ikke, men man kan for at få det look man vil have. Man kan også lave det i headeren
-    height: 4em;
+    height: 5em;
     padding: 1em;
     //vi henter vores flex igen. Include tagget skal bruges for at hente sin mixin, partial er filen den ligger i. Definer hvilken fil du henter fra og så hvad din mixin hedder. Ses nedenfor:
     @include partial.flex($justify: space-between);
@@ -104,4 +104,41 @@ nav{
 .active{
     //En klasse der hedder active er for at brugeren altid kan se hvor de er.
     color: partial.$primary-color; //Når vi laver en hover på en side bliver det grøn, fx sæt den ind som class på fx "forside" bliver den grøn.
+}
+
+//Nu skal vi igang med header billede eller hero banner, billedet neden under.
+//Vi har 2 billeder og tekst og knap vi skal have ovenover billedet
+
+.header-img{
+    position: relative;
+    margin-bottom: 1em; //for at give lidt luft til næste element efterfølgende.
+
+        .banner-tekst{
+            position: absolute;
+            top: 25%;
+            left: 5%; //Ved disse to tal er det bare at prøve indtil det er som man vil have det gennerelt.
+
+
+        }
+
+        h1{
+            font-size: 3.5vw;
+        }
+        p{
+            font-size: 2vw;
+        }
+        //Nu laver vi en mixin der indeholder vores knap style i partial og foresætter nedenfor:
+        a{
+            @include partial.btn;
+            position: absolute;
+
+                &:hover{ //Anden måde også at lave knappen
+                    background-color: partial.$secundary-color;
+                    transition: 0.3s ease-in-out;
+                }
+        }
+}
+
+.bg-billede-mobil{
+    display: none;
 }

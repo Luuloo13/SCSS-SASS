@@ -21,6 +21,17 @@ body{
         h1, h2, h3, h4, h5, h6{
             font-weight: 600;
             color: partial.$txt-color;
-            
+
         }
+}
+
+img{
+    width: 100%; //max-with 100% hvis billedet ikke skal strækkes, dog er disse billeder store nok
+    height: auto;
+}
+
+.container{
+    display: grid; //Grid kan defineres på flere måder, vi gør brug af grid collums og grid rows, auto rows da vi ikke skal ind og lave noget kompleks
+    grid-template-columns: repeat(5, 1fr); //Her skriver hvor mange collums vi skla have og hvad størresle de skal have
+    grid-auto-rows: minmax(50px, auto); //De rækker der er som ikke er specificeret skal indeholde 50px, igen her er vi ikke inde og lave noget konkret med rækkerne.
 }

@@ -131,6 +131,8 @@ nav{
         a{
             @include partial.btn;
             position: absolute;
+            display: inline-block;
+            margin-top: 1em;
 
                 &:hover{ //Anden måde også at lave knappen
                     background-color: partial.$secundary-color;
@@ -246,4 +248,73 @@ main{
     background-position: center; /*Den skal positioneres ifht. midten af billedet*/
 }
 
-/*Kontaktformularen*/
+/*Kontaktformularen*/   
+.kontakt-bg-img{
+    /*Her i skal have et billede til at ligge bagved, vi definere vores grid, tilføjer vores grid samt overlay og hvordan billedet skal vises, her er vi i vores main som består af 6 colonner*/
+    grid-column: 1/7;
+    background: linear-gradient(rgba(142, 142, 142, 0.8), rgba(142, 142, 142, 0.8)), url(img/meeting.jpg); /*rgba, a er hvor meget man skal være i stand til at se igennem farven, derefter addes url som er det billede der skal være under*/
+    background-size: cover;
+}
+
+.kontaktform{
+    /*Hvordan skal det se ud, baggrundsfarve, centrering osv af denne formular kasse*/
+    background-color: partial.$bg-color;
+    border-radius: 5px; /*Så den får lidt runde hjørner*/
+    padding: 1.3em; /*Så kontaktformularen ikke ligger helt ude i siden*/
+    width: 50%;
+    /*Vi vil gerne have at man skal se lidt i toppen, men også i bundenen*/
+    margin: 4em auto;
+
+        h3{
+            /*størelsen og margin*/
+            font-size: 25px;
+            margin-bottom: 0;
+            margin-left: 0.5em;
+        }
+
+        p{
+            margin-left: 1em;
+        }
+}
+
+/*flexboks omkring vores div, altså vores elementer, så de kommer op ved siden af hinanden.*/
+.section-form{
+    display: flex;
+}
+
+/*Vi tager fat i input, med de forskellige types, fx telefon, mail osv, når vi gør det og ikke har givet en class skal man bruge input og firkantetparanteser*/
+input[type=text], input[type=email], input[type=tel], select, textarea{
+    width: 100%;
+    font-size: 15px;
+    padding: 1em;
+    border-radius: 4px;
+    border: 1px solid partial.$secundary-color;
+    box-sizing: border-box;
+    margin: 0.5em 1em 1em 1em;
+    font-family: partial.$font;
+
+}
+
+input[type=submit]{
+    @include partial.btn;
+    font-size: 15px;
+    border: none;
+    width: 100%;
+    margin: 0 1em;
+    cursor: pointer;
+
+        &:hover{
+            background-color: partial.$secundary-color;
+            transition: 0.4s ease-in-out;
+        }
+}
+
+.visually-hidden { /*Den visuelt gemmer den i html og så kan den læses op af en skærmlæseren*/
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }

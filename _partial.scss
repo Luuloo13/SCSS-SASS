@@ -27,3 +27,10 @@ $font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
     text-align: center;
 }
+
+@mixin cta-box($width:20vw){
+width: $width; //globale variabler kan tilgås af alle, alle steder. Når vi har kaldt dem et modul kan vi hente dem alle steder. Når vi arbejder i mixins, der kan vi også indsætte variabler dog kan disse variabler kun tilgås inden for det specifikke mixin, derfor er disse så lokale variabler disse kan ikke kaldes på uden for sit mixin, så skulle der have været et justify variable.
+background-color: #fff;
+padding: 2em;
+margin: 2em auto; //Elementet skal være centreret inden for sin kasse. den skal selv tilpasse sig til højre og venstre derfor sætter vi den til auto.
+}

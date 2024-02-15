@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -118,4 +119,99 @@ main {
   grid-column: 1/6;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-}/*# sourceMappingURL=style.css.map */
+}
+main h2 {
+  grid-column: 1/7; /*Den skal fylde den fulde længde*/
+  text-align: center;
+  font-size: 30px;
+}
+main .cta-wrapper {
+  grid-column: 1/7; /*sektionen med call to action skal fylde den fulde bredde*/
+  display: flex;
+  justify-content: space-around; /*De call to action inde i den wrapper skal fordeles med denne space around*/
+}
+
+/*CTA bokse*/
+.cta-1, .cta-2, .cta-3 {
+  width: 20vw;
+  background-color: #fff;
+  padding: 2em;
+  margin: 2em auto;
+}
+.cta-1 img, .cta-2 img, .cta-3 img { /*Billederne skal rettes til de er for store*/
+  margin: 0 auto; /*Der skal ikke tilgås yderligere margin*/
+  width: 60%;
+  display: block; /*Selvom de har en bredde på 60% skal billedet stadig fylde 60%*/
+}
+.cta-1 p, .cta-2 p, .cta-3 p { /*Vi tilføjer margin i bunden da de kan ryge op over teksten derfor tilføjer vi lidt ekstra under buinden*/
+  margin-bottom: 2em;
+}
+.cta-1 a, .cta-2 a, .cta-3 a { /*Vi har allerede en mixin, som vi har lavet, den kalder vi bare på*/
+  background-color: #3a8479;
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  display: block; /*Så elementet fylder hele sin container, så ingen elementer kommer op og står ved siden ad*/
+}
+.cta-1 a:hover, .cta-2 a:hover, .cta-3 a:hover { /*vi vil gerne have en hover effekt, med samme baggrundsfarve*/
+  background-color: #133833;
+  transition: 0.4s ease-in-out;
+}
+
+/*Tekst o gbillede sektionen (der med den grønnekasse ogbillede ved siden ad)*/
+.txt-img-section {
+  /*Den er underlagt grid som vi lavede på main, så definere vi hvor meget den skal fylde, den fulde bredde af de 7 linjer, så laver vi yderligere et grid på den som kommer til at ligge inde i den sektion.*/
+  grid-column: 1/7;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.tekst {
+  grid-column: 1/5;
+  background-color: #133833;
+  padding: 2em 4em 4em 4em;
+  /*h2 skifter vi baggrundsfarve og så skal den over i venstres ide*/
+}
+.tekst p {
+  color: #f0f0f0;
+}
+.tekst p:nth-of-type(4) { /*Fordi vi har 4 p i vores sektion*/
+  margin-bottom: 3em;
+}
+.tekst h2 {
+  color: #f0f0f0;
+  text-align: left;
+}
+
+/*knappen i tekstsektionen i den grønne kasse*/
+.secendary-btn {
+  /*Vi henter vores default knap og så tilpasser vi den med transparent da vi har en variabel hvor vi bare kan skifte farven*/
+  background-color: transparant;
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid #fff;
+  /*Hover skal også laves:*/
+}
+.secendary-btn:hover {
+  background-color: #fff;
+  color: #133833;
+  transition: 0.4s ease-in-out;
+}
+
+/*Her sættes billedet ind i den tomme div inde i html filen*/
+.billede {
+  /*billede skal tilføjes også skal vi sige hvor meget det skal fylde i vores grid*/
+  grid-column: 5/8;
+  background-image: url(img/presentation.jpg);
+  /*Definere hvordan billedet skal vises og hvilke del af billedet det skal centreres omkring, altså hvordan skal billedet positioneres*/
+  background-repeat: no-repeat;
+  background-size: cover; /*Cover den skal prøve at få det til at passe ind i det plads den nu har*/
+  background-position: center; /*Den skal positioneres ifht. midten af billedet*/
+}
+
+/*Kontaktformularen*//*# sourceMapp

@@ -142,3 +142,11 @@ nav{
 .bg-billede-mobil{
     display: none;
 }
+
+/*Forside*/
+
+main{
+    grid-column: 1/6;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
